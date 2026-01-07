@@ -3,8 +3,15 @@ class Solution {
     {
         int arr[]=new int[nums1.length+nums2.length];
         double val=0;
-        System.arraycopy(nums1,0,arr,0,nums1.length);
-        System.arraycopy(nums2,0,arr,nums1.length,nums2.length);
+        for(int i=0;i<nums1.length;i++)
+        arr[i]=nums1[i];
+        int k=0;
+        for(int i=nums1.length;i<nums1.length+nums2.length;i++)
+        {
+         arr[i]=nums2[k];
+         k++;
+        }
+        
         Arrays.sort(arr);
         if(arr.length%2==0)
         {
