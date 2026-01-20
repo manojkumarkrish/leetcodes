@@ -3,7 +3,7 @@ class Solution {
     {
      ListNode temp=head;
      if (head == null) return null;
-     while(temp.next!=null&&temp!=null)
+     while(temp.next!=null)
      {
         if(temp.val==temp.next.val)
         {
