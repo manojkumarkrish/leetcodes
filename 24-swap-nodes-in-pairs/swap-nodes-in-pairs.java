@@ -13,13 +13,28 @@ class Solution
     public ListNode swapPairs(ListNode head) 
     {
       ListNode temp=head;
+      if(head==null||head.next==null)
+      {
+        return head;
+      }
+      ListNode prev=null;
+      int ct=0;
       while(temp!=null&&temp.next!=null)
       {
-        int v=temp.val;
-        temp.val=temp.next.val;
-        temp.next.val=v;
-        temp=temp.next;
-        temp=temp.next;
+        if(ct==0)
+        {
+            head=temp.next;
+            ct++;
+        }
+        ListNode f=temp;
+        ListNode s=temp.next;
+        ListNode c=s.next;
+        s.next=f;
+        f.next=c;
+        if(prev!=null)
+        prev.next=s;
+        prev=f;
+        temp=c;
       }
       return head; 
     }
