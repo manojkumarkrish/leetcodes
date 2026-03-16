@@ -16,14 +16,8 @@ class Solution {
         {
             int a=temp.val;
             int b=temp.next.val;
-            int gcd=1;
-            for(int i=1;i<=a&&i<=b;i++)
-            {
-                if(a%i==0&&b%i==0)
-                {
-                    gcd=i;
-                }
-            }
+            int gcd=gcd(a,b);
+
             ListNode newnode=new ListNode(gcd);
             ListNode nextnode=temp.next;
             temp.next=newnode;
@@ -31,5 +25,15 @@ class Solution {
             temp=nextnode;
         }
         return head;
+    }
+    public int gcd(int a, int b)
+    {
+        while(b!=0)
+        {
+            int t=b;
+            b=a%b;
+            a=t;
+        }
+        return a;
     }
 }
